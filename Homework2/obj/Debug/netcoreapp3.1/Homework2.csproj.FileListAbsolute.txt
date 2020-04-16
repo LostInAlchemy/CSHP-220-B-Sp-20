@@ -24,3 +24,29 @@ F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Week 2\Homework2\bin\
 F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Week 2\Homework2\bin\Debug\netcoreapp3.1\Homework2.dll
 F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Week 2\Homework2\bin\Debug\netcoreapp3.1\Homework2.pdb
 F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Week 2\Homework2\obj\Debug\netcoreapp3.1\Homework2.genruntimeconfig.cache
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.exe
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.deps.json
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.runtimeconfig.json
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.runtimeconfig.dev.json
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.dll
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.pdb
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.csprojAssemblyReference.cache
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.csproj.CoreCompileInputs.cache
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.AssemblyInfoInputs.cache
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.AssemblyInfo.cs
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.dll
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.pdb
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.genruntimeconfig.cache
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.exe
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.deps.json
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.runtimeconfig.json
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.runtimeconfig.dev.json
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.dll
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\bin\Debug\netcoreapp3.1\Homework2.pdb
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.csprojAssemblyReference.cache
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.csproj.CoreCompileInputs.cache
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.AssemblyInfoInputs.cache
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.AssemblyInfo.cs
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.dll
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.pdb
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework2\obj\Debug\netcoreapp3.1\Homework2.genruntimeconfig.cache

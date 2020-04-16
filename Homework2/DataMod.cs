@@ -1,35 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Homework2
 {
     class DataMod
     {
+        public List<Models.User> Deletedusers;
+
         public List<Models.User> RemovePWLowerCaseName(List<Models.User> users)
         {
-            List<Models.User> users1 = new List<Models.User>();
+            Deletedusers = new List<Models.User>(users);
+            Deleted("lower");
 
-            var PWofUserName = from u in users
-                               where u.Name.ToLower() == u.Password
-                               select new { u.Name, u.Password };
+            users.RemoveAll(u => u.Name.ToLower() == u.Password);
 
-
-            //var PWofUserName = users.Where(u => u.Name.ToLower() == u.Password);//.Select( new { u.Name, u.Password });
-
-            foreach (var u in PWofUserName)
-            {
-                users1.Add(new Models.User { Name = u.Name, Password = u.Password });
-            }
-
-
-            //return (List < Models.User >)PWofUserName;
-            return users1;
+            return users;
         }
 
-        public void FirstHello(List<Models.User> users)
+        public List<Models.User> DeleteFirstUserByPW(List<Models.User> users, string PW)
         {
+            //Deletedusers.Clear();
+            Deletedusers = new List<Models.User>(users);
+            Deleted("first", PW);
+
+            users.Remove(users.Where(u => u.Password == PW).FirstOrDefault());
+
+            return users;
+        }
+
+        public void Deleted(string choice, string PW = null)
+        {
+            var databaseusers = (dynamic)null;
+
+            switch (choice)
+            {
+                case "lower":
+                    Deletedusers.RemoveAll(deletedu => deletedu.Name.ToLower() != deletedu.Password);
+                    break;
+
+                case "first":
+                    databaseusers = Deletedusers
+                        .Where(u => u.Password == PW)
+                        .Select(u => new { u.Name, u.Password })
+                        .FirstOrDefault();
+
+                    Deletedusers.Clear();
+
+                    Deletedusers.Add(new Models.User { Name = databaseusers.Name, Password = databaseusers.Password });
+                    break;
+            }
+
 
         }
     }
