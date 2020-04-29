@@ -15,7 +15,50 @@
         <TextBox x:Name="uxName" TextChanged="uxSubmitAvailable"/>
         <TextBlock>Enter Password:</TextBlock>
         <TextBox x:Name="uxPassword" TextChanged="uxSubmitAvailable"/>
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit</Button>
+        <Button>
+        <Button x:Name="uxSubmit" 
+                Click="uxSubmit_Click" 
+                Foreground="#FFCC0620" 
+                Background="Beige"
+                >Submit</Button>
+        </Button>
+        
+        
+        <Button 
+            Foreground="#FFCC0620" 
+            Content="test" 
+            Height="100" 
+            Width="100" >
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0" />
+                    <GradientStop Color="White" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+
+        <Button Click="Button_Click" >
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="uxSub" 
+                Click="uxSubmit_Click" 
+                Foreground="#FFCC0620" 
+                Background="Beige" 
+                >Submit</Button>
+                <CheckBox x:Name ="Checkme"/>
+            </StackPanel>
+        </Button>
+
+
+       
+
+
+
+
+
+
+
 
     </StackPanel>
 

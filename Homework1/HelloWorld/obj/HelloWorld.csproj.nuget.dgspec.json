@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\Week 1\\Homework1\\HelloWorld\\HelloWorld.csproj": {}
+    "E:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\CSHP-220-B-Sp-20\\Homework1\\HelloWorld\\HelloWorld.csproj": {}
   },
   "projects": {
-    "F:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\Week 1\\Homework1\\HelloWorld\\HelloWorld.csproj": {
+    "E:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\CSHP-220-B-Sp-20\\Homework1\\HelloWorld\\HelloWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\Week 1\\Homework1\\HelloWorld\\HelloWorld.csproj",
+        "projectUniqueName": "E:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\CSHP-220-B-Sp-20\\Homework1\\HelloWorld\\HelloWorld.csproj",
         "projectName": "HelloWorld",
-        "projectPath": "F:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\Week 1\\Homework1\\HelloWorld\\HelloWorld.csproj",
-        "packagesPath": "C:\\Users\\Remington\\.nuget\\packages\\",
-        "outputPath": "F:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\Week 1\\Homework1\\HelloWorld\\obj\\",
+        "projectPath": "E:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\CSHP-220-B-Sp-20\\Homework1\\HelloWorld\\HelloWorld.csproj",
+        "packagesPath": "C:\\Users\\310053650\\.nuget\\packages\\",
+        "outputPath": "E:\\CSHP 220 B Sp 20 Creating Client Applications In Csharp\\CSHP-220-B-Sp-20\\Homework1\\HelloWorld\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Remington\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+          "C:\\Users\\310053650\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -60,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -36,3 +36,22 @@ E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Week 1\HelloWorld\Hel
 E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Week 1\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.dll
 E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Week 1\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.pdb
 E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Week 1\HelloWorld\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.genruntimeconfig.cache
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.exe
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.deps.json
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.runtimeconfig.json
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.runtimeconfig.dev.json
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.dll
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\bin\Debug\netcoreapp3.1\HelloWorld.pdb
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.csprojAssemblyReference.cache
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\App.g.cs
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld_MarkupCompile.cache
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld_MarkupCompile.lref
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\MainWindow.baml
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.g.resources
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.csproj.CoreCompileInputs.cache
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.AssemblyInfoInputs.cache
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.AssemblyInfo.cs
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.dll
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.pdb
+F:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\CSHP-220-B-Sp-20\Homework1\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.genruntimeconfig.cache
