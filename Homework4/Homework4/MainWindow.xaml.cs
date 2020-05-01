@@ -9,6 +9,7 @@ namespace Homework4
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool _match = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,9 +37,20 @@ namespace Homework4
 
         private void uxSubmitAvailable()
         {
+            ZipCodeValidation validation = new ZipCodeValidation();
+
             if (uxZipcode.Text != string.Empty)
             {
-                uxSubmit.IsEnabled = true;
+                if (validation.ZipCodeVal(uxZipcode.Text.ToString()))
+                    {
+                    uxSubmit.IsEnabled = true;
+                    _match = true;
+                }
+                else
+                {
+                    _match = false;
+                    uxSubmit.IsEnabled = false;
+                }
             }
             else
             {
@@ -48,9 +60,14 @@ namespace Homework4
 
         private void uxSubmit_Click()
         {
-            ZipCodeValidation validation = new ZipCodeValidation();
-
-            validation.ZipCodeVal(uxZipcode.Text.ToString());
+            if (_match)
+            {
+                MessageBox.Show(uxZipcode.Text + Constants.message1, Constants.titleMsg1, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(uxZipcode.Text + Constants.message2, Constants.titleMsg2, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
             uxZipcode.Text = string.Empty;
             uxZipcode.Focus();
