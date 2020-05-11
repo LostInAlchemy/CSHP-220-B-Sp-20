@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -10,79 +11,62 @@ namespace Homework5_Tic_Tac_Toe
 {
     class Game
     {
-        private bool gameover = false;
-
-        public void NewGame(GameBoard game, Grid uxGrid, TextBlock uxTurn, Image img)
+        public void GameStart(GameBoard gameBoard, string player, Button button)
         {
-            for (int i = 0; i < uxGrid.Children.Count; ++i)
+            int playerposition = BoardPostion(button);
+            List<int> playerMovesUpdate = null;
+
+            if (player == Constants.player1)
             {
-                game.playcount = 1;
-                Array.Clear(game.board, 0, game.board.Length);
-                Button button = (Button)uxGrid.Children[i];
-                button.Content = "";
-                uxTurn.Text = "";
-                gameover = false;
+                playerMovesUpdate = gameBoard.Player1Moves;
+            }
+            else if (player == Constants.player2)
+            {
+                playerMovesUpdate = gameBoard.Player2Moves;
+            }
+
+            foreach (int position in gameBoard.AvaibleMoves)
+            {
+                if (gameBoard.AvaibleMoves.Remove(playerposition))
+                {
+                    playerMovesUpdate.Add(playerposition);
+                    ++gameBoard.Playcount;
+                    break;
+                }
             }
         }
 
-        public void GameStart(Button button, GameBoard game, TextBlock uxTurn, Image img)
+        private bool OccupiedPosition(GameBoard gameBoard, Button button)
         {
-            if (gameover == false)
+            bool positionFilled = false;
+
+            if (!gameBoard.AvaibleMoves.Contains(BoardPostion(button)))
             {
-                string player = string.Empty;
-                int[] gamePosition = new int[2];
+                MessageBox.Show(PlayerFeedBack.positionFilled);
+                positionFilled = true;
+            }
+            return positionFilled;
+        }
 
-                uxTurn.Text = PlayerFeedBack.Player1_Turn;
+        public string PlayerTurn(GameBoard gameBoard, Button button)
+        {
+            string player = Constants.nonPlayer;
 
-                int i = 0;
-
-                foreach (string s in button.Tag.ToString().Split(","))
+            if (!OccupiedPosition(gameBoard, button))
+            {
+                if (!IsOdd(gameBoard.Playcount))
                 {
-                    gamePosition[i] = int.Parse(s);
-                    ++i;
-                }
-
-                if (game.board[gamePosition[0], gamePosition[1]] == null)
-                {
-                    if (IsOdd(game.playcount))
-                    {
-                        player = Players.player1;
-                        uxTurn.Text = PlayerFeedBack.Player2_Turn;
-                    }
-                    else
-                    {
-                        player = Players.player2;
-                    }
-
-                    game.board[gamePosition[0], gamePosition[1]] = player;
-
-                    PlayerMove(button, player);
-                    if (Winner(player, game, uxTurn, img))
-                    {
-                        gameover = true;
-                        if (player == "X")
-                        {
-                            uxTurn.Text = PlayerFeedBack.Player1_Win;
-                        }
-                        else
-                        {
-                            uxTurn.Text = PlayerFeedBack.Player2_Win;
-                        }
-                        MessageBox.Show(PlayerFeedBack.gameOver);
-                    }
-                    ++game.playcount;
+                    player = Constants.player1;
                 }
                 else
                 {
-                    MessageBox.Show(PlayerFeedBack.positionFilled);
+                    player = Constants.player2;
                 }
-            }
-        }
 
-        private void PlayerMove(Button button, string player)
-        {
-            button.FontSize = 75;
-            button.Content = player;
+                GameStart(gameBoard, player, button);
+            }
+
+            return player;
         }
 
         public static bool IsOdd(int value)
@@ -90,63 +74,84 @@ namespace Homework5_Tic_Tac_Toe
             return value % 2 != 0;
         }
 
-        private bool Winner(string player, GameBoard game, TextBlock uxTurn, Image img)
+        public int BoardPostion(Button button)
+        {
+            int[] gamePosition = new int[2];
+            int i = 0;
+
+            foreach (string s in button.Tag.ToString().Split(","))
+            {
+                gamePosition[i] = int.Parse(s);
+                ++i;
+            }
+
+            int position = Convert.ToInt32("" + gamePosition[0] + gamePosition[1]);
+            return position;
+        }
+
+        public bool Winner(GameBoard gameBoard, string player)//, Image img)
         {
             Winning_Key winkey = new Winning_Key();
-
-            List<string> winner = new List<string>();
-
             bool isWinner = false;
 
-            if (game.playcount >= 5)
+            List<int> EvalPlayerMoves = null;
+
+            if (player == Constants.player1)
             {
-                foreach (string position in game.board)
+                EvalPlayerMoves = gameBoard.Player1Moves;
+            }
+            else if (player == Constants.player2)
+            {
+                EvalPlayerMoves = gameBoard.Player2Moves;
+            }
+
+            foreach (var key in winkey.Wincombo)
+            {
+               if (WinningKeySearch.ContainsSequence(EvalPlayerMoves, key.Value))
                 {
-                    if (position == player)
-                    {
-                        winner.Add(position);
-                    }
-                    else
-                    {
-                        winner.Add(null);
-                    }
-                }
-
-                List<int> challenge = new List<int>();
-
-                for (int i = 0; i < game.board.Length; ++i)
-                {
-                    bool gameover = false;
-                    if (winner[i] != null)
-                    {
-                        try
-                        {
-                            challenge.Add(i);
-                        }
-                        catch { }
-
-                        if (challenge.Count >= 3)
-                        {
-                            foreach (var key in winkey.wincombo)
-                            {
-                                if (string.Join(",", challenge).Contains(string.Join(",", key.Value)))
-                                {
-                                    uxTurn.Text = "";
-                                    MessageBox.Show(PlayerFeedBack.Win);
-                                    gameover = true;
-                                    isWinner = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    if (gameover)
-                    {
-                        break;
-                    }
+                    isWinner = true;
+                    break;
                 }
             }
+
             return isWinner;
+        }
+
+        private string PlayerPlaySet(GameBoard gameBoard, string player)
+        {
+            string playerPlaySet = "";
+
+            if (player == Constants.player1)
+            {
+                playerPlaySet = string.Join(",", gameBoard.Player1Moves);
+            }
+
+            else if (player == Constants.player2)
+            {
+                playerPlaySet = string.Join(",", gameBoard.Player2Moves);
+            }
+
+            return playerPlaySet;
+        }
+
+        public bool Stalemate(GameBoard gameBoard)
+        {
+            bool stalemate = false;
+
+            if (gameBoard.Playcount == Constants.MaxPlayCount)
+            {
+                stalemate = true;
+                //var image = new BitmapImage();
+                //image.BeginInit();
+                //image.UriSource = new Uri(Resources.stalemateanim.gif);
+                //image.EndInit();
+                //ImageBehavior.SetAnimatedSource(img, image);
+                //ImageBehavior.SetAutoStart(img, false);
+                //ImageBehavior.SetRepeatBehavior(img, new RepeatBehavior(TimeSpan.FromSeconds(10)));
+                //isWinner = true;
+                //break;
+            }
+            return stalemate;
         }
     }
 }

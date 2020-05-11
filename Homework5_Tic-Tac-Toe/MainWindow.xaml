@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Homework5_Tic_Tac_Toe"
         mc:Ignorable="d"
          xmlns:gif="http://wpfanimatedgif.codeplex.com"
-        Title="MainWindow" Height="385" Width="321">
+        Title="Tic Tac Toe" Height="385" Width="321">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
