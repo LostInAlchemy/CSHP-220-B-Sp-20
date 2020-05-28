@@ -1,0 +1,15 @@
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\bin\Debug\netcoreapp3.1\DeviceRepository.deps.json
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\bin\Debug\netcoreapp3.1\DeviceRepository.dll
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\obj\Debug\netcoreapp3.1\DeviceRepository.csprojAssemblyReference.cache
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\obj\Debug\netcoreapp3.1\DeviceRepository.AssemblyInfoInputs.cache
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\obj\Debug\netcoreapp3.1\DeviceRepository.AssemblyInfo.cs
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\bin\Debug\netcoreapp3.1\DeviceRepository.runtimeconfig.json
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\bin\Debug\netcoreapp3.1\DeviceRepository.runtimeconfig.dev.json
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\bin\Debug\netcoreapp3.1\DeviceRepository.pdb
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\bin\Debug\netcoreapp3.1\DeviceDB.dll
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\bin\Debug\netcoreapp3.1\DeviceDB.pdb
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\obj\Debug\netcoreapp3.1\DeviceRepository.csproj.CoreCompileInputs.cache
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\obj\Debug\netcoreapp3.1\DeviceRepository.csproj.CopyComplete
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\obj\Debug\netcoreapp3.1\DeviceRepository.dll
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\obj\Debug\netcoreapp3.1\DeviceRepository.pdb
+E:\CSHP 220 B Sp 20 Creating Client Applications In Csharp\Project\DeviceApp\DeviceRepository\obj\Debug\netcoreapp3.1\DeviceRepository.genruntimeconfig.cache
