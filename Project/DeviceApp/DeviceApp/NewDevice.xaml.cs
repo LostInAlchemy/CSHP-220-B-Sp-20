@@ -1,6 +1,5 @@
 ﻿using DeviceApp.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -30,7 +29,7 @@ namespace DeviceApp
         }
 
         #region New Device Click Events
-        private void uxSubmit_Click(object sender, RoutedEventArgs e)
+        private void Submit_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
             CommitAttributes();
@@ -38,7 +37,7 @@ namespace DeviceApp
             Close();
         }
 
-        private void uxCancel_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             // This is the return value of ShowDialog( ) below
             DialogResult = false;
@@ -71,7 +70,7 @@ namespace DeviceApp
         #endregion
 
         #region Device Attributes ListBox
-        private void uxAdd_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
             uxAdd.IsEnabled = false;
 
@@ -89,7 +88,7 @@ namespace DeviceApp
             list.Add(attribute);
         }
 
-        private void uxRemove_Click(object sender, RoutedEventArgs e)
+        private void Remove_Click(object sender, RoutedEventArgs e)
         {
             uxRemove.IsEnabled = false;
 

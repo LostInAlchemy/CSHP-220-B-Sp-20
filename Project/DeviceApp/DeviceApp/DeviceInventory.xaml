@@ -11,10 +11,13 @@
             <MenuItem Header="_File">
                 <MenuItem Header="_New" Click="uxFileNew_Click"/>
                 <MenuItem x:Name="uxFileChange" Header="_Edit" Click="uxFileChange_Click" Loaded="uxFileChange_Loaded" />
-                <MenuItem x:Name="uxAllDevices" Header="Show All Devices" Click="uxAllDevices_Click"></MenuItem>
                 <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
                 <Separator/>
-                <MenuItem Header="E_xit" Click="uxOnClose_Click"/>
+                <MenuItem x:Name="uxAllDevices" Header="Show All Devices" Click="uxAllDevices_Click"></MenuItem>
+                <Separator/>
+                <MenuItem Header="Open _Type Page" Click="TypePage_Click"/>
+                <MenuItem Header="L_og Out" Click="uxOnClose_Click"/>
+                <MenuItem Header="E_xit"                Click="Exit_Click"/>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="Coming Soon"/>
@@ -24,38 +27,23 @@
                   AlternationCount="2">
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click"/>
-                    <MenuItem x:Name="uxContextFileChange" Header="Edit" Click="uxFileChange_Click" Loaded="uxFileChange_Loaded"/>
-                    <MenuItem x:Name="uxContextFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded"/>
+                    <MenuItem Header="_New"                 x:Name="uxContextFileNew"
+                              Click="uxFileNew_Click"/>
+                    <MenuItem Header="Edit"                 x:Name="uxContextFileChange"
+                              Click="uxFileChange_Click" 
+                              Loaded="uxFileChange_Loaded"/>
+                    <MenuItem Header="_Delete"              x:Name="uxContextFileDelete"
+                              Click="uxFileDelete_Click" 
+                              Loaded="uxFileDelete_Loaded"/>
+                    <MenuItem Header="_Show All Devices"    x:Name="uxContextOpenDeviceList"
+                              Click="uxAllDevices_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View >
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding DeviceInventoryId}" Header="ID" />
                     <GridViewColumn DisplayMemberBinding="{Binding DeviceMfgname}" Header="Manfacturer" />
-
-
-
-
-
-
-
-
-
                     <GridViewColumn DisplayMemberBinding="{Binding DevicePartNumber}" Header="Part&#x0a;Number"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <GridViewColumn DisplayMemberBinding="{Binding DeviceSerialNumber}" Header="Serial&#x0a;Number" />
                     <GridViewColumn Header="Device Name" >
                         <GridViewColumn.CellTemplate>
@@ -71,13 +59,6 @@
                         </DataTemplate>
                     </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-
-
-
-
-
-
-
                     <GridViewColumn DisplayMemberBinding="{Binding DevicePowerType}" Header="Power Type"  />
                     <GridViewColumn Header="Attributes" Width="150" >
                         <GridViewColumn.CellTemplate>

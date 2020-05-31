@@ -9,15 +9,17 @@
     <StackPanel>
         <Menu>
             <MenuItem Header="_File">
-                <MenuItem Header="_New" Click="uxFileNew_Click"/>
-                <MenuItem Header="_Open Device List" Click="uxOpenDevices_Click"/>
-                <MenuItem x:Name="uxFileChange" Header="_Edit" 
-                          Click="uxFileChange_Click" Loaded="uxFileChange_Loaded" />
-                <MenuItem x:Name="uxFileDelete" Header="_Delete" 
-                          Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
+                <MenuItem Header="_New"                 Click="uxFileNew_Click"/>
+                <MenuItem Header="_Open Device List"    Click="uxOpenDevices_Click"/>
+                <MenuItem Header="_Edit" x:Name="uxFileChange"  
+                                                        Click="uxFileChange_Click" 
+                                                        Loaded="uxFileChange_Loaded" />
+                <MenuItem Header="_Delete" x:Name="uxFileDelete"  
+                                                        Click="uxFileDelete_Click" 
+                                                        Loaded="uxFileDelete_Loaded" />
                 <Separator/>
-                <MenuItem Header="R_eturn to Logon" Click="uxOnClose_Click"/>
-                <MenuItem Header="E_xit" Click="Exit_Click"/>
+                <MenuItem Header="L_ogout"              Click="uxOnClose_Click"/>
+                <MenuItem Header="E_xit"                Click="uxExit_Click"/>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="Coming Soon"/>
@@ -25,34 +27,37 @@
         </Menu>
         
         <ListView x:Name="uxTypeList" Height="300" 
-                  SelectionChanged="uxTypeList_SelectionChanged" MouseDoubleClick="uxTypeList_MouseDoubleClick"
+                  SelectionChanged="uxTypeList_SelectionChanged" 
+                  MouseDoubleClick="uxTypeList_MouseDoubleClick"
                   AlternationCount="2">
+            
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="uxContextFileNew"         Header="_New" 
+                    <MenuItem Header="_New"                 x:Name="uxContextFileNew"          
                               Click="uxFileNew_Click"/>
-                    <MenuItem x:Name="uxContextFileChange"      Header="Edit" 
+                    <MenuItem Header="Edit"                 x:Name="uxContextFileChange"       
                               Click="uxFileChange_Click" 
                               Loaded="uxFileChange_Loaded"/>
-                    <MenuItem x:Name="uxContextFileDelete"      Header="_Delete" 
+                    <MenuItem Header="_Delete"              x:Name="uxContextFileDelete"      
                               Click="uxFileDelete_Click" 
                               Loaded="uxFileDelete_Loaded"/>
-                    <MenuItem x:Name="uxContextOpenDeviceList"  Header="_Open Device List" 
+                    <MenuItem Header="_Open Device List"    x:Name="uxContextOpenDeviceList"  
                               Click="uxOpenDevices_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding TypeInventoryId}" Header="Type ID"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding TypeType}" Header="Device Type"/>
-                    <GridViewColumn Header="Description" Width="220">
+                    <GridViewColumn Header="Type ID"        DisplayMemberBinding="{Binding TypeInventoryId}" />
+                    <GridViewColumn Header="Device Type"    DisplayMemberBinding="{Binding TypeType}" />
+                    <GridViewColumn Header="Description" 
+                                    Width="220">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding TypeDesc}" TextWrapping="Wrap"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding TypeAddedDate}" Header="Date Added"/>
+                    <GridViewColumn Header="Date Added"     DisplayMemberBinding="{Binding TypeAddedDate}" />
                 </GridView>
             </ListView.View>
         </ListView>

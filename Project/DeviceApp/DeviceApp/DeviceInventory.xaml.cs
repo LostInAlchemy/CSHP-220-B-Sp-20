@@ -12,6 +12,7 @@ namespace DeviceApp
     {
         private Models.DeviceModel selectedDevice;
         private string selectedDeviceType;
+        public string ExitType { get; set; }
 
         public DeviceInventory(string ExitType, string selectedType = null)
         {
@@ -20,18 +21,16 @@ namespace DeviceApp
         }
 
         #region Click Events
-        private void uxFileNew_Click(object sender, RoutedEventArgs e)
+
+        private void uxAllDevices_Click(object sender, RoutedEventArgs e)
         {
-            var window = new NewDevice();
+            DeviceList("All");
+        }
 
-            if (window.ShowDialog() == true)
-            {
-                var uiDeviceModel = window.Device;
-                var repositoryDeviceModel = uiDeviceModel.ToRepositoryModel();
-
-                App.DeviceRepository.Add(repositoryDeviceModel);
-                DeviceList(selectedDeviceType);
-            }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = "";
+            this.Close();
         }
 
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
@@ -46,23 +45,45 @@ namespace DeviceApp
             DeviceList(selectedDeviceType);
         }
 
+        private void uxFileNew_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new NewDevice();
+
+            if (window.ShowDialog() == true)
+            {
+                var uiDeviceModel = window.Device;
+                var repositoryDeviceModel = uiDeviceModel.ToRepositoryModel();
+
+                App.DeviceRepository.Add(repositoryDeviceModel);
+                DeviceList(selectedDeviceType);
+            }
+        }
+
         private void uxOnClose_Click(object sender, RoutedEventArgs e)
         {
+            this.DataContext = "Logout";
             this.Close();
         }
+
+        private void TypePage_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = "TypePage";
+            this.Close();
+        }
+
+        #endregion
+
+        #region Double Click Envents
 
         private void uxDeviceList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             EditDevice();
         }
-        
-        private void uxAllDevices_Click(object sender, RoutedEventArgs e)
-        {
-            DeviceList("All");
-        }
+
         #endregion
 
         #region Load Events
+
         private void uxFileChange_Loaded(object sender, RoutedEventArgs e)
         {
             uxFileChange.IsEnabled = (selectedDevice != null);
@@ -77,7 +98,7 @@ namespace DeviceApp
 
         #endregion
 
-        #region Window Events
+        #region Change Events
 
         private void uxDeviceList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -88,36 +109,34 @@ namespace DeviceApp
 
         #region Windown Methods
 
-        private void DeviceList(string selectedType)
+        private void EditDevice()
         {
-            selectedDeviceType = selectedType;
-            var devices = App.DeviceRepository.GetAll();
+            var window = new NewDevice
+            {
+                Device = selectedDevice.Clone()
+            };
 
-            if (selectedType == null)
+            if (window.ShowDialog() == true)
             {
-                LoadDevices(devices);
-            }
-            else if (selectedType == "All")
-            {
-                LoadDevices(devices);
-            }
-            else
-            {
-                LoadSelectDevices(selectedType, devices);
+                App.DeviceRepository.Update(window.Device.ToRepositoryModel());
+                DeviceList(selectedDeviceType);
             }
         }
 
         private void LoadDevices(List<Repository.DeviceModel> devices)
         {
-            DeviceLoad(devices);
+            //DeviceLoad(devices);
+            uxDeviceList.ItemsSource = devices
+                           .Select(t => Models.DeviceModel.ToModel(t))
+                           .ToList();
         }
 
-        private void DeviceLoad(List<Repository.DeviceModel> devices)
-        {
-            uxDeviceList.ItemsSource = devices
-                                       .Select(t => Models.DeviceModel.ToModel(t))
-                                       .ToList();
-        }
+        //private void DeviceLoad(List<Repository.DeviceModel> devices)
+        //{
+        //    uxDeviceList.ItemsSource = devices
+        //                               .Select(t => Models.DeviceModel.ToModel(t))
+        //                               .ToList();
+        //}
 
         private void LoadSelectDevices(string selectedType, List<Repository.DeviceModel> devices)
         {
@@ -131,18 +150,26 @@ namespace DeviceApp
                                        .ToList();
         }
 
-        private void EditDevice()
+        private void DeviceList(string selectedType)
         {
-            var window = new NewDevice();
-            window.Device = selectedDevice.Clone();
+            selectedDeviceType = selectedType;
+            var devices = App.DeviceRepository.GetAll();
 
-            if (window.ShowDialog() == true)
+            if (selectedType == null || selectedType == "All")
             {
-                App.DeviceRepository.Update(window.Device.ToRepositoryModel());
-                DeviceList(selectedDeviceType);
+                LoadDevices(devices);
+            }
+            else
+            {
+                LoadSelectDevices(selectedType, devices);
             }
         }
 
         #endregion
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

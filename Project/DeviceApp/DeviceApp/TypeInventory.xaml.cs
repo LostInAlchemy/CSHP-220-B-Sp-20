@@ -37,7 +37,7 @@ namespace DeviceApp
 
         private void uxOpenDevices_Click(object sender, RoutedEventArgs e)
         {
-            OpenDevicePage();
+            OpenDevicePage(ExitType);
         }
 
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
@@ -51,12 +51,14 @@ namespace DeviceApp
             selectedType = null;
             LoadTypes();
         }
+
         private void uxOnClose_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = "ReturnToMain";
+            this.DataContext = "Logout";
             this.Close();
         }
-        private void Exit_Click(object sender, RoutedEventArgs e)
+
+        private void uxExit_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = "";
             this.Close();
@@ -68,7 +70,7 @@ namespace DeviceApp
 
         private void uxTypeList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            OpenDevicePage();
+            OpenDevicePage(ExitType);
         }
 
         #endregion
@@ -107,6 +109,8 @@ namespace DeviceApp
 
         #endregion
 
+        #region Window Methods
+
         private void EditType()
         {
             var window = new NewType();
@@ -119,7 +123,7 @@ namespace DeviceApp
             }
         }
 
-        private void OpenDevicePage()
+        private void OpenDevicePage(string ExitType)
         {
             this.Visibility = Visibility.Collapsed;
 
@@ -134,9 +138,37 @@ namespace DeviceApp
                 SelectedType = "All";
             }
 
-            var deviceInventory = new DeviceInventory(ExitType, SelectedType);
-            deviceInventory.ShowDialog();
-            this.Visibility = Visibility.Visible;
+            var windowDeviceInv = new DeviceInventory(ExitType, SelectedType);
+            windowDeviceInv.ShowDialog();
+
+            ExitEvent(windowDeviceInv);
         }
+
+        private void ExitEvent(DeviceInventory windowDeviceInv)
+        {
+            try
+            {
+                if ((string)windowDeviceInv.DataContext == "TypePage")
+                {
+                    this.Visibility = Visibility.Visible;
+                }
+                else if((string)windowDeviceInv.DataContext == "Logout")
+                {
+                    this.DataContext = "Logout";
+                    this.Close();
+                }
+                else
+                {
+                    this.DataContext = "";
+                    this.Close();
+                }
+            }
+            catch
+            {
+                this.Close();
+            }
+        }
+
+        #endregion
     }
 }

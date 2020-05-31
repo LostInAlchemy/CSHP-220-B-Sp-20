@@ -33,7 +33,7 @@ namespace DeviceApp
         {
             try
             {
-                if ((string)windownTypeInv.DataContext == "ReturnToMain")
+                if ((string)windownTypeInv.DataContext == "Logout")
                 {
                     this.Visibility = Visibility.Visible;
                 }

@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeviceApp"
         mc:Ignorable="d"
-        Title="New Device" Height="400" Width="800" Icon="/Images/WindowIcon.jpg"
-    FocusManager.FocusedElement="{Binding ElementName=uxDeviceMfgname}"
+        Title="New Device" Height="550" Width="800" 
+        FocusManager.FocusedElement="{Binding ElementName=uxDeviceMfgname}"
+        Style="{StaticResource GenWindow}"
         Loaded="Window_Loaded">
-    <!--<Window.Background>
-        <ImageBrush ImageSource="\Images/NewDevice.jpg" />
-    </Window.Background>-->
+        <Window.Background>
+            <ImageBrush ImageSource="\Images/NewDevice.jpg" />
+        </Window.Background>
+
     <StackPanel>
         <Grid x:Name="uxGrid_Device">
             <Grid.ColumnDefinitions>
@@ -28,53 +30,77 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+
             </Grid.RowDefinitions>
-            <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"      FontSize="20" Foreground="AntiqueWhite"                                    >Manufacturer</TextBlock>
-            <TextBox   Grid.Column="1" Grid.Row="0" x:Name="uxDeviceMfgname"        Text="{Binding DeviceMfgname}"     ></TextBox>
-            <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"      FontSize="20" Foreground="AntiqueWhite"                                     >Device Name</TextBlock>
-            <TextBox   Grid.Column="1" Grid.Row="1" x:Name="uxDeviceDeviceName"     Text="{Binding DeviceDeviceName}"      ></TextBox>
-            <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left"      FontSize="20" Foreground="AntiqueWhite"                                     >Part Number</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="0" 
+                       Style="{StaticResource StyleNewDevice}">Manufacturer</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1"
+                       Style="{StaticResource StyleNewDevice}">Device Name</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="2"
+                       Style="{StaticResource StyleNewDevice}">Part Number</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3"
+                       Style="{StaticResource StyleNewDevice}">Serial Number</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="4"
+                       Style="{StaticResource StyleNewDevice}">Type</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="5"
+                       Style="{StaticResource StyleNewDevice}">MFG Description</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="0"
+                       Style="{StaticResource StyleNewDevice}">Cost</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="1"
+                       Style="{StaticResource StyleNewDevice}">Power Type</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="2"
+                       Style="{StaticResource StyleNewDevice}">Protocol</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="4"
+                       Style="{StaticResource StyleNewDevice}">Status</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="5"
+                       Style="{StaticResource StyleNewDevice}">Device Controller</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="6"
+                       Style="{StaticResource StyleNewDevice}">Location</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center"
+                       Style="{StaticResource StyleNewDevice}">Attribute List</TextBlock>
+
+            <TextBox   Grid.Column="1" Grid.Row="0" x:Name="uxDeviceMfgname"        Text="{Binding DeviceMfgname}"      ></TextBox>
+            <TextBox   Grid.Column="1" Grid.Row="1" x:Name="uxDeviceDeviceName"     Text="{Binding DeviceDeviceName}"   ></TextBox>
             <TextBox   Grid.Column="1" Grid.Row="2" x:Name="uxDevicePartNumber"     Text="{Binding DevicePartNumber}"   ></TextBox>
-            <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left"      FontSize="20" Foreground="AntiqueWhite"                                     >Serial Number</TextBlock>
             <TextBox   Grid.Column="1" Grid.Row="3" x:Name="uxDeviceSerialNumber"   Text="{Binding DeviceSerialNumber}" ></TextBox>
-            <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left"       FontSize="20" Foreground="AntiqueWhite"                                    >Type</TextBlock>
-            <ComboBox Grid.Column="1" Grid.Row="4" x:Name="uxCmbDeviceType" SelectionChanged="uxCmbDeviceType_SelectionChanged" SelectedValuePath="Tag"></ComboBox>
-            <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left"      FontSize="20" Foreground="AntiqueWhite"                                     >MFG Description</TextBlock>
-            <TextBox   Grid.Column="1" Grid.Row="5" x:Name="uxDeviceMfgdesc"        Text="{Binding DeviceMfgdesc}"      ></TextBox>
-            <TextBlock Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left"      FontSize="20" Foreground="AntiqueWhite"                                     >Cost</TextBlock>
+            <TextBox   Grid.Column="1" Grid.Row="5" x:Name="uxDeviceMfgdesc"        Text="{Binding DeviceMfgdesc}" 
+                       TextWrapping="Wrap" Grid.RowSpan="3" Height="90"></TextBox>
             <TextBox   Grid.Column="4" Grid.Row="0" x:Name="uxDeviceCost"           Text="{Binding DeviceCost}"         ></TextBox>
-            <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left"          FontSize="20" Foreground="AntiqueWhite"                                 >Power Type</TextBlock>
-            <ComboBox Grid.Column="4" Grid.Row="1" x:Name="uxCmbDevicePowerType"    SelectionChanged="uxCmbDevicePowerType_SelectionChanged" SelectedValuePath="Tag" ></ComboBox>
-            <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Left"   FontSize="20" Foreground="AntiqueWhite"                                        >Protocol</TextBlock>
             <TextBox   Grid.Column="4" Grid.Row="2" x:Name="uxDeviceProtocol"       Text="{Binding DeviceProtocol}"     ></TextBox>
-            <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Left"     FontSize="20" Foreground="AntiqueWhite"                                     >Status</TextBlock>
-            <TextBox   Grid.Column="4" Grid.Row="4" x:Name="uxDeviceStatus"        Text="{Binding DeviceStatus}"       ></TextBox>
-            <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Left"     FontSize="20" Foreground="AntiqueWhite"                                     >Device Controller</TextBlock>
-            <TextBox   Grid.Column="4" Grid.Row="5" x:Name="uxDeviceControlledBy"  Text="{Binding DeviceControlledBy}" ></TextBox>
-            <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Left"     FontSize="20" Foreground="AntiqueWhite"                                     >Location</TextBlock>
-            <TextBox   Grid.Column="4" Grid.Row="6" x:Name="uxDeviceLocation"      Text="{Binding DeviceLocation}"     ></TextBox>
-            <TextBlock Grid.Column="0" Grid.Row="13" HorizontalAlignment="Left"       FontSize="20" Foreground="AntiqueWhite"                                    >Attributes</TextBlock>
+            <TextBox   Grid.Column="4" Grid.Row="4" x:Name="uxDeviceStatus"         Text="{Binding DeviceStatus}"       ></TextBox>
+            <TextBox   Grid.Column="4" Grid.Row="5" x:Name="uxDeviceControlledBy"   Text="{Binding DeviceControlledBy}" ></TextBox>
+            <TextBox   Grid.Column="4" Grid.Row="6" x:Name="uxDeviceLocation"       Text="{Binding DeviceLocation}"     ></TextBox>
+
+            <ComboBox Grid.Column="1" Grid.Row="4" x:Name="uxCmbDeviceType"
+                      SelectionChanged="uxCmbDeviceType_SelectionChanged" 
+                      SelectedValuePath="Tag"></ComboBox>
+            <ComboBox Grid.Column="4" Grid.Row="1" x:Name="uxCmbDevicePowerType"
+                      SelectionChanged="uxCmbDevicePowerType_SelectionChanged" 
+                      SelectedValuePath="Tag" ></ComboBox>
+            
         </Grid>
-        <DockPanel Width="500" HorizontalAlignment="Left">
-            <ListBox x:Name="uxAttributeList" DockPanel.Dock="Left" Height="100" Width="200" Background="AntiqueWhite"
+        <DockPanel Width="580" HorizontalAlignment="Left">
+            <ListBox x:Name="uxAttributeList" DockPanel.Dock="Left" Height="150" Width="220" Background="AntiqueWhite"
          SelectionChanged="uxCurrentList_SelectionChanged"/>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                <Button x:Name="uxAdd" Width="100" FontSize="15" IsEnabled="False" Content="Add >>" Click="uxAdd_Click"/>
-                <Button x:Name="uxRemove" Width="100" FontSize="15" IsEnabled="False" Content="&lt;&lt; Remove" Click="uxRemove_Click"/>
+                <Button x:Name="uxAdd"      Width="120" FontSize="15" Foreground="Black"
+                        IsEnabled="False" 
+                        Content="Add >>"
+                        Click="Add_Click"/>
+                <Button x:Name="uxRemove"   Width="120" FontSize="15" Foreground="Black"
+                        IsEnabled="False" 
+                        Content="&lt;&lt; Remove"
+                        Click="Remove_Click"/>
             </StackPanel>
-            <ListBox x:Name="uxAddList" DockPanel.Dock="Right" Width="200" Background="AntiqueWhite"
-       SelectionChanged="uxAddList_SelectionChanged"/>
+            <ListBox x:Name="uxAddList" DockPanel.Dock="Right" Height="150" Width="220" Background="AntiqueWhite"
+                        SelectionChanged="uxAddList_SelectionChanged"/>
         </DockPanel>
-        <StackPanel Orientation="Horizontal" Grid.Column="4" Grid.Row="13" HorizontalAlignment="Right">
-            <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click"  Margin="10">Add</Button>
-            <Button x:Name="uxCancel"  MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10">Cancel</Button>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="uxSubmit"  Click="Submit_Click" >Add</Button>
+            <Button x:Name="uxCancel"  Click="Cancel_Click" >Cancel</Button>
         </StackPanel>
     </StackPanel>
 </Window>
