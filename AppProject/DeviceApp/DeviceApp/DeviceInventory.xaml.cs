@@ -125,18 +125,10 @@ namespace DeviceApp
 
         private void LoadDevices(List<Repository.DeviceModel> devices)
         {
-            //DeviceLoad(devices);
             uxDeviceList.ItemsSource = devices
                            .Select(t => Models.DeviceModel.ToModel(t))
                            .ToList();
         }
-
-        //private void DeviceLoad(List<Repository.DeviceModel> devices)
-        //{
-        //    uxDeviceList.ItemsSource = devices
-        //                               .Select(t => Models.DeviceModel.ToModel(t))
-        //                               .ToList();
-        //}
 
         private void LoadSelectDevices(string selectedType, List<Repository.DeviceModel> devices)
         {
@@ -166,10 +158,5 @@ namespace DeviceApp
         }
 
         #endregion
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

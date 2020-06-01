@@ -3,23 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DeviceApp"
         mc:Ignorable="d"
-        Title="New Device" Height="550" Width="800" 
+        Title="New Device" Height="550" Width="830" ResizeMode="NoResize"
         FocusManager.FocusedElement="{Binding ElementName=uxDeviceMfgname}"
-        Style="{StaticResource GenWindow}"
+        Style="{StaticResource GenWindow}" 
         Loaded="Window_Loaded">
-        <Window.Background>
-            <ImageBrush ImageSource="\Images/NewDevice.jpg" />
-        </Window.Background>
+
 
     <StackPanel>
         <Grid x:Name="uxGrid_Device">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="200" />
                 <ColumnDefinition Width="40" />
-                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="180" />
                 <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -35,33 +32,21 @@
                 <RowDefinition Height="30" />
 
             </Grid.RowDefinitions>
-            <TextBlock Grid.Column="0" Grid.Row="0" 
-                       Style="{StaticResource StyleNewDevice}">Manufacturer</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="1"
-                       Style="{StaticResource StyleNewDevice}">Device Name</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="2"
-                       Style="{StaticResource StyleNewDevice}">Part Number</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="3"
-                       Style="{StaticResource StyleNewDevice}">Serial Number</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="4"
-                       Style="{StaticResource StyleNewDevice}">Type</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="5"
-                       Style="{StaticResource StyleNewDevice}">MFG Description</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="0"
-                       Style="{StaticResource StyleNewDevice}">Cost</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="1"
-                       Style="{StaticResource StyleNewDevice}">Power Type</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="2"
-                       Style="{StaticResource StyleNewDevice}">Protocol</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="4"
-                       Style="{StaticResource StyleNewDevice}">Status</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="5"
-                       Style="{StaticResource StyleNewDevice}">Device Controller</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="6"
-                       Style="{StaticResource StyleNewDevice}">Location</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center"
-                       Style="{StaticResource StyleNewDevice}">Attribute List</TextBlock>
-
+            <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Background="Aqua">Manufacturer</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold" Background="Aqua">Device Name</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" Background="Aqua">Part Number</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold" Background="Aqua">Serial Number</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold" Background="Aqua">Type</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold" Background="Aqua">MFG Description</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="0" FontWeight="Bold" Background="Aqua">Cost</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="1" FontWeight="Bold" Background="Aqua">Power Type</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="2" FontWeight="Bold" Background="Aqua">Protocol</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="4" FontWeight="Bold" Background="Aqua">Status</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="5" FontWeight="Bold" Background="Aqua">Device Controller</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="6" FontWeight="Bold" Background="Aqua">Location</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" Height="20" FontWeight="Bold" Background="Aqua">Attribute List</TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" FontWeight="Bold" Background="Aqua">Assigned Attribute</TextBlock>
+            
             <TextBox   Grid.Column="1" Grid.Row="0" x:Name="uxDeviceMfgname"        Text="{Binding DeviceMfgname}"      ></TextBox>
             <TextBox   Grid.Column="1" Grid.Row="1" x:Name="uxDeviceDeviceName"     Text="{Binding DeviceDeviceName}"   ></TextBox>
             <TextBox   Grid.Column="1" Grid.Row="2" x:Name="uxDevicePartNumber"     Text="{Binding DevicePartNumber}"   ></TextBox>
@@ -75,16 +60,21 @@
             <TextBox   Grid.Column="4" Grid.Row="6" x:Name="uxDeviceLocation"       Text="{Binding DeviceLocation}"     ></TextBox>
 
             <ComboBox Grid.Column="1" Grid.Row="4" x:Name="uxCmbDeviceType"
+                      IsEditable="True" IsReadOnly="True" Text="Select Device Type"
                       SelectionChanged="uxCmbDeviceType_SelectionChanged" 
                       SelectedValuePath="Tag"></ComboBox>
-            <ComboBox Grid.Column="4" Grid.Row="1" x:Name="uxCmbDevicePowerType"
+            <ComboBox Grid.Column="4" Grid.Row="1" x:Name="uxCmbDevicePowerType" 
+                      IsEditable="True" IsReadOnly="True" Text="Select Power Type"
                       SelectionChanged="uxCmbDevicePowerType_SelectionChanged" 
                       SelectedValuePath="Tag" ></ComboBox>
             
         </Grid>
-        <DockPanel Width="580" HorizontalAlignment="Left">
-            <ListBox x:Name="uxAttributeList" DockPanel.Dock="Left" Height="150" Width="220" Background="AntiqueWhite"
-         SelectionChanged="uxCurrentList_SelectionChanged"/>
+        <DockPanel Width="580" HorizontalAlignment="Left" Margin="10,0,0,20">
+            <ListBox x:Name="uxAttributeList" 
+                     DockPanel.Dock="Left" 
+                     Height="150" Width="220" 
+                     Background="AntiqueWhite"
+                     SelectionChanged="uxCurrentList_SelectionChanged"/>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                 <Button x:Name="uxAdd"      Width="120" FontSize="15" Foreground="Black"
                         IsEnabled="False" 
@@ -95,8 +85,12 @@
                         Content="&lt;&lt; Remove"
                         Click="Remove_Click"/>
             </StackPanel>
-            <ListBox x:Name="uxAddList" DockPanel.Dock="Right" Height="150" Width="220" Background="AntiqueWhite"
-                        SelectionChanged="uxAddList_SelectionChanged"/>
+            
+            <ListBox x:Name="uxAddList" 
+                     DockPanel.Dock="Right" 
+                     Height="150" Width="220" 
+                     Background="AntiqueWhite"
+                     SelectionChanged="uxAddList_SelectionChanged"/>
         </DockPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="uxSubmit"  Click="Submit_Click" >Add</Button>

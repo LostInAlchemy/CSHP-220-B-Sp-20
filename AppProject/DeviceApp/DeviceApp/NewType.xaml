@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DeviceApp"
         mc:Ignorable="d"
-        Title="NewType" Height="200" Width="400" 
+        Title="NewType" Height="200" Width="400" ResizeMode="NoResize"
         FocusManager.FocusedElement="{Binding ElementName=uxTypeType}"
         Loaded="Window_Loaded"
         Style="{StaticResource GenWindow}">
@@ -20,8 +19,8 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" Foreground="White">Type:</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="1">Description:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Background="Aqua">Type:</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" Height="20" VerticalAlignment="Top" FontWeight="Bold" Background="Aqua">Description:</TextBlock>
 
         <TextBox x:Name="uxTypeType" Grid.Row="0" Grid.Column="1" Text="{Binding TypeType}"></TextBox>
         <TextBox x:Name="uxTypeDesc" Grid.Row="1" Grid.Column="1" Text="{Binding TypeDesc}"

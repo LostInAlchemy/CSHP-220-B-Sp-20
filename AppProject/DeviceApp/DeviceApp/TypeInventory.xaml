@@ -3,20 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DeviceApp"
         mc:Ignorable="d"
-        Title="Type Inventory" Height="400" Width="650" Style="{StaticResource GenWindow}">
-    <StackPanel>
-        <Menu>
+        Title="Type Inventory" Height="400" Width="670"
+        Style="{StaticResource GenWindow}">
+    <DockPanel>
+        
+        <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_New"                 Click="uxFileNew_Click"/>
-                <MenuItem Header="_Open Device List"    Click="uxOpenDevices_Click"/>
+
                 <MenuItem Header="_Edit" x:Name="uxFileChange"  
                                                         Click="uxFileChange_Click" 
                                                         Loaded="uxFileChange_Loaded" />
                 <MenuItem Header="_Delete" x:Name="uxFileDelete"  
                                                         Click="uxFileDelete_Click" 
                                                         Loaded="uxFileDelete_Loaded" />
+                <Separator/>
+                <MenuItem Header="_Open Device List"    Click="uxOpenDevices_Click"/>
                 <Separator/>
                 <MenuItem Header="L_ogout"              Click="uxOnClose_Click"/>
                 <MenuItem Header="E_xit"                Click="uxExit_Click"/>
@@ -25,8 +28,14 @@
                 <MenuItem Header="Coming Soon"/>
             </MenuItem>
         </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="uxStatusBar"/>
+            </StatusBarItem>
+        </StatusBar>
         
-        <ListView x:Name="uxTypeList" Height="300" 
+        <ListView x:Name="uxTypeList" Height="auto" 
                   SelectionChanged="uxTypeList_SelectionChanged" 
                   MouseDoubleClick="uxTypeList_MouseDoubleClick"
                   AlternationCount="2">
@@ -61,5 +70,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-    </StackPanel>
+        </DockPanel>
 </Window>

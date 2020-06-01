@@ -81,12 +81,5 @@ namespace DeviceApp.Models
         {
             return (DeviceModel)MemberwiseClone();
         }
-
-        //public static explicit operator DeviceModel(Repository.DeviceModel v)
-        //{
-        //    DeviceModel helpme = v.;
-
-        //    return helpme;
-        //}
     }
 }
