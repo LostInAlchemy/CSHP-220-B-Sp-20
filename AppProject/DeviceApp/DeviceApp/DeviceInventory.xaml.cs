@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
+using static DeviceApp.Sorter;
 
 namespace DeviceApp
 {
@@ -13,6 +16,8 @@ namespace DeviceApp
         private Models.DeviceModel selectedDevice;
         private string selectedDeviceType;
         public string ExitType { get; set; }
+        private GridViewColumnHeader listViewSortCol = null;
+        private SortAdorner listViewSortAdorner = null;
 
         public DeviceInventory(string ExitType, string selectedType = null)
         {
@@ -69,6 +74,11 @@ namespace DeviceApp
         {
             this.DataContext = "TypePage";
             this.Close();
+        }
+
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            Sort(sender);
         }
 
         #endregion
@@ -158,5 +168,27 @@ namespace DeviceApp
         }
 
         #endregion
+
+
+        private void Sort(object sender)
+        {
+            GridViewColumnHeader column = (sender as GridViewColumnHeader);
+            string sortBy = column.Tag.ToString();
+            if (listViewSortCol != null)
+            {
+                AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
+                uxDeviceList.Items.SortDescriptions.Clear();
+            }
+
+            ListSortDirection newDir = ListSortDirection.Ascending;
+            if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
+                newDir = ListSortDirection.Descending;
+
+            listViewSortCol = column;
+            listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
+            AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
+            uxDeviceList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
+        }
+
     }
 }

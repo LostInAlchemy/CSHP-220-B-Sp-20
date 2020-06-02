@@ -48,11 +48,9 @@
                         <MenuItem Header="_New"                 x:Name="uxContextFileNew"
                               Click="uxFileNew_Click"/>
                         <MenuItem Header="Edit"                 x:Name="uxContextFileChange"
-                              Click="uxFileChange_Click" 
-                              Loaded="uxFileChange_Loaded"/>
+                              Click="uxFileChange_Click" Loaded="uxFileChange_Loaded"/>
                         <MenuItem Header="_Delete"              x:Name="uxContextFileDelete"
-                              Click="uxFileDelete_Click" 
-                              Loaded="uxFileDelete_Loaded"/>
+                              Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded"/>
                         <Separator/>
                         <MenuItem Header="_Show All Devices"    x:Name="uxContextOpenDeviceList"
                               Click="uxAllDevices_Click"/>
@@ -60,25 +58,51 @@
                 </ListView.ContextMenu>
                 <ListView.View >
                     <GridView >
-                        <GridViewColumn DisplayMemberBinding="{Binding DeviceInventoryId}" Header="ID" />
-                        <GridViewColumn DisplayMemberBinding="{Binding DeviceMfgname}" Header="Manfacturer" />
-                        <GridViewColumn DisplayMemberBinding="{Binding DevicePartNumber}" Header="Part&#x0a;Number"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding DeviceSerialNumber}" Header="Serial&#x0a;Number" />
-                        <GridViewColumn Header="Device Name" >
+                        <GridViewColumn DisplayMemberBinding="{Binding DeviceInventoryId}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceInventoryId" Click="GridViewColumnHeader_Click">ID</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding DeviceMfgname}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceMfgname" Click="GridViewColumnHeader_Click">Manfacturer</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding DevicePartNumber}" >
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DevicePartNumber" Click="GridViewColumnHeader_Click">Part&#x0a;Number</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding DeviceSerialNumber}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceSerialNumber" Click="GridViewColumnHeader_Click">Serial&#x0a;Number</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceDeviceName" Click="GridViewColumnHeader_Click">Device Name</GridViewColumnHeader>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding DeviceDeviceName}" TextWrapping="Wrap"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Type" >
+                        <GridViewColumn>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding DeviceType}" TextWrapping="Wrap"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceType" Click="GridViewColumnHeader_Click">Type</GridViewColumnHeader>
+                            </GridViewColumn.Header>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding DevicePowerType}" Header="Power Type"  />
+                        <GridViewColumn DisplayMemberBinding="{Binding DevicePowerType}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DevicePowerType" Click="GridViewColumnHeader_Click">Power Type</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
                         <GridViewColumn Header="Attributes" Width="150" >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
@@ -86,7 +110,11 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding DeviceProtocol}" Header="Communication&#x0a;Protocol"  />
+                        <GridViewColumn DisplayMemberBinding="{Binding DeviceProtocol}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceProtocol" Click="GridViewColumnHeader_Click">Communication&#x0a;Protocol</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding DeviceCost, StringFormat=\{0:C\}}" Header="Cost" />
                         <GridViewColumn Header="MFG Description" Width="205">
                             <GridViewColumn.CellTemplate>
@@ -95,10 +123,26 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding DeviceStatus}" Header="Status" Width="75"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding DeviceControlledBy}" Header="Device&#x0a;Controller"  />
-                        <GridViewColumn DisplayMemberBinding="{Binding DeviceLocation}" Header="Location"  />
-                        <GridViewColumn DisplayMemberBinding="{Binding DeviceAddedDate}" Header="Date Added"  />
+                        <GridViewColumn DisplayMemberBinding="{Binding DeviceStatus}" Width="75">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceStatus" Click="GridViewColumnHeader_Click">Status</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding DeviceControlledBy}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceControlledBy" Click="GridViewColumnHeader_Click">Device&#x0a;Controller</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding DeviceLocation}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceLocation" Click="GridViewColumnHeader_Click">Location</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding DeviceAddedDate}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="DeviceAddedDate" Click="GridViewColumnHeader_Click">Date Added</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView >

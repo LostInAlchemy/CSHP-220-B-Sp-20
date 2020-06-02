@@ -56,8 +56,16 @@
             </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Type ID"        DisplayMemberBinding="{Binding TypeInventoryId}" />
-                    <GridViewColumn Header="Device Type"    DisplayMemberBinding="{Binding TypeType}" />
+                    <GridViewColumn DisplayMemberBinding="{Binding TypeInventoryId}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="TypeInventoryId" Click="GridViewColumnHeader_Click">Type ID</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding TypeType}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="TypeType" Click="GridViewColumnHeader_Click">Device Type</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                     <GridViewColumn Header="Description" 
                                     Width="220">
                         <GridViewColumn.CellTemplate>
@@ -66,7 +74,11 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Date Added"     DisplayMemberBinding="{Binding TypeAddedDate}" />
+                    <GridViewColumn DisplayMemberBinding="{Binding TypeAddedDate}" >
+                    <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="TypeAddedDate" Click="GridViewColumnHeader_Click">Date Added</GridViewColumnHeader>
+                    </GridViewColumn.Header>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -1,7 +1,10 @@
 ﻿using DeviceApp.Models;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
+using static DeviceApp.Sorter;
 
 namespace DeviceApp
 {
@@ -12,6 +15,8 @@ namespace DeviceApp
     {
         public string ExitType { get; set; }
         private static TypeModel selectedType;
+        private GridViewColumnHeader listViewSortCol = null;
+        private SortAdorner listViewSortAdorner = null;
 
         public TypeInventory(string ExitType)
         {
@@ -62,6 +67,11 @@ namespace DeviceApp
         {
             this.DataContext = "";
             this.Close();
+        }
+
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            Sort(sender);
         }
 
         #endregion
@@ -141,6 +151,7 @@ namespace DeviceApp
             var windowDeviceInv = new DeviceInventory(ExitType, SelectedType);
             windowDeviceInv.ShowDialog();
 
+            selectedType = null;
             ExitEvent(windowDeviceInv);
         }
 
@@ -170,5 +181,29 @@ namespace DeviceApp
         }
 
         #endregion
+
+
+
+
+
+        private void Sort(object sender)
+        {
+            GridViewColumnHeader column = (sender as GridViewColumnHeader);
+            string sortBy = column.Tag.ToString();
+            if (listViewSortCol != null)
+            {
+                AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
+                uxTypeList.Items.SortDescriptions.Clear();
+            }
+
+            ListSortDirection newDir = ListSortDirection.Ascending;
+            if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
+                newDir = ListSortDirection.Descending;
+
+            listViewSortCol = column;
+            listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
+            AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
+            uxTypeList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
+        }
     }
 }
