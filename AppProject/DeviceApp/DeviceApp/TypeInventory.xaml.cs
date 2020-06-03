@@ -136,7 +136,6 @@ namespace DeviceApp
         private void OpenDevicePage(string ExitType)
         {
             this.Visibility = Visibility.Collapsed;
-
             string SelectedType = string.Empty;
 
             if (selectedType != null)
@@ -180,12 +179,6 @@ namespace DeviceApp
             }
         }
 
-        #endregion
-
-
-
-
-
         private void Sort(object sender)
         {
             GridViewColumnHeader column = (sender as GridViewColumnHeader);
@@ -205,5 +198,7 @@ namespace DeviceApp
             AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
             uxTypeList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
+
+        #endregion
     }
 }

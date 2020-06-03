@@ -10,15 +10,19 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_New"
+                <MenuItem Header="_New" Icon=""
                           Click="uxFileNew_Click"/>
                 <MenuItem Header="_Edit"    x:Name="uxFileChange"
                           Click="uxFileChange_Click" Loaded="uxFileChange_Loaded" />
                 <MenuItem Header="_Delete"  x:Name="uxFileDelete"
                           Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
                 <Separator/>
-                <MenuItem Header="Show All Devices" x:Name="uxAllDevices"
-                          Click="uxAllDevices_Click"></MenuItem>
+                <MenuItem Header="Filter Devices" x:Name="uxFilterDevices">
+                    <MenuItem Header="Device Filter" x:Name="Menu1" Click="Menu1_Click">
+                    </MenuItem>
+                    <MenuItem Header="Show All Devices" x:Name="uxAllDevices" Click="uxAllDevices_Click"/>
+                </MenuItem>
+                <Separator/>
                 <MenuItem Header="Open _Type Page"
                           Click="TypePage_Click"/>
                 <Separator/>
@@ -52,8 +56,11 @@
                         <MenuItem Header="_Delete"              x:Name="uxContextFileDelete"
                               Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded"/>
                         <Separator/>
-                        <MenuItem Header="_Show All Devices"    x:Name="uxContextOpenDeviceList"
-                              Click="uxAllDevices_Click"/>
+                        <MenuItem Header="Filter Devices" x:Name="uxContextFilterDevices">
+                            <MenuItem Header="Device Filter" x:Name="ContextMenu1" Click="Menu1_Click">
+                            </MenuItem>
+                            <MenuItem Header="Show All Devices" x:Name="uxContextAllDevices" Click="uxAllDevices_Click"/>
+                        </MenuItem>
                     </ContextMenu>
                 </ListView.ContextMenu>
                 <ListView.View >

@@ -15,7 +15,7 @@ namespace DeviceApp
     {
         private Models.DeviceModel selectedDevice;
         private string selectedDeviceType;
-        public string ExitType { get; set; }
+        //public string ExitType { get; set; }
         private GridViewColumnHeader listViewSortCol = null;
         private SortAdorner listViewSortAdorner = null;
 
@@ -23,6 +23,7 @@ namespace DeviceApp
         {
             InitializeComponent();
             DeviceList(selectedType);
+            PopulateFilterMenu();
         }
 
         #region Click Events
@@ -62,6 +63,15 @@ namespace DeviceApp
                 App.DeviceRepository.Add(repositoryDeviceModel);
                 DeviceList(selectedDeviceType);
             }
+        }
+
+        private void Menu1_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem obMenuItem = e.OriginalSource as MenuItem;
+
+            var selectedType = obMenuItem.Header.ToString();
+            var devices = App.DeviceRepository.GetAll();
+            LoadSelectDevices(selectedType, devices);
         }
 
         private void uxOnClose_Click(object sender, RoutedEventArgs e)
@@ -117,7 +127,7 @@ namespace DeviceApp
 
         #endregion
 
-        #region Windown Methods
+        #region Window Methods
 
         private void EditDevice()
         {
@@ -143,13 +153,14 @@ namespace DeviceApp
         private void LoadSelectDevices(string selectedType, List<Repository.DeviceModel> devices)
         {
             var selectDevices = devices
-                                .Select(t => Models.DeviceModel.ToModel(t))
-                                .ToList();
+                    .Select(t => Models.DeviceModel.ToModel(t))
+                    .ToList();
 
-            uxDeviceList.ItemsSource = (from d in selectDevices
-                                        where d.DeviceType == selectedType
-                                        select d)
-                                       .ToList();
+            List<Models.DeviceModel> deviceList = (from d in selectDevices
+                                                   where d.DeviceType == selectedType
+                                                   select d).ToList();
+
+            uxDeviceList.ItemsSource = deviceList;
         }
 
         private void DeviceList(string selectedType)
@@ -166,9 +177,6 @@ namespace DeviceApp
                 LoadSelectDevices(selectedType, devices);
             }
         }
-
-        #endregion
-
 
         private void Sort(object sender)
         {
@@ -190,5 +198,17 @@ namespace DeviceApp
             uxDeviceList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
 
+        private void PopulateFilterMenu()
+        {
+            var devices = App.DeviceRepository.GetAll();
+            var menuList = devices
+                                .Select(t => Models.DeviceModel.ToModel(t).DeviceType)
+                                .Distinct()
+                                .ToList();
+
+            Menu1.ItemsSource = menuList;
+            ContextMenu1.ItemsSource = menuList;
+        }
+        #endregion
     }
 }
