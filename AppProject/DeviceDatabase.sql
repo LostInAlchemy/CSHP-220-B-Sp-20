@@ -73,4 +73,5 @@ values
 	('Samsung', '123', '456', 'Multipurpose Sensor', 'Contact Sensor', 'Battery_CR-2450', 'Temperature, Tilt', 'Zigbee', 20.99, 'Monitor doors and windows. Monitor temperature and orientation.', 'Active', 'Smartthings', 'Somewhere'),
 	('Samsung', '123', '123', 'Motion Sensor', 'Motion Sensor', 'Battery_AA', 'Motion, Temperature', 'Zigbee', 35.50, 'Monitor motion and temperature. Adjust the sensor angle with the quick tilt magnetic ball mount.', 'DeActive', 'Smartthings', 'Somewhere'),
 	('Samsung', '123', '456', 'Motion Sensor', 'Motion Sensor', 'Battery_CR-2032', 'Motion, Temperature', 'Zigbee', 35.50, 'Monitor motion and temperature.', 'Active', 'Smartthings', 'Somewhere'),
-	('GE', '123', '123', 'Light Switch', 'Light Switch', 'Battery_CR-123A', 'On/Off, Dimmer', 'Zwave', 49.99, 'YadaYadaYota', 'Active', 'Smartthings', 'Somewhere');
+	('GE', '123', '123', 'Light Switch', 'Light Switch', 'Battery_CR-123A', 'On/Off, Dimmer', 'Zwave', 49.99, 'YadaYadaYota', 'Active', 'Smartthings', 'Somewhere'),
+	('Wyze', '123', '123', 'Wyze Cam V2', 'WiFi Camera', '120V Hardwired', 'Built-in speaker and microphone, Push notifications, Night vision', 'WiFi', 19.99, 'YadaYadaYota', 'Active', 'Smartthings', 'Somewhere');

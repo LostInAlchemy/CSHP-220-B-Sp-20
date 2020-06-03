@@ -123,6 +123,7 @@ namespace DeviceApp
         private void uxDeviceList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedDevice = (Models.DeviceModel)uxDeviceList.SelectedValue;
+            PopulateFilterMenu();
         }
 
         #endregion

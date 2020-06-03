@@ -161,6 +161,7 @@ namespace DeviceApp
                 if ((string)windowDeviceInv.DataContext == "TypePage")
                 {
                     this.Visibility = Visibility.Visible;
+                    //windowDeviceInv.DataContext = null;
                 }
                 else if((string)windowDeviceInv.DataContext == "Logout")
                 {

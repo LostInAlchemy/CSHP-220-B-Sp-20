@@ -44,7 +44,7 @@ namespace DeviceApp
             }
             catch
             {
-                this.Close();
+                //this.Close();
             }
         }
     }
