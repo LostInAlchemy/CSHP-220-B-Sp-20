@@ -65,7 +65,23 @@ namespace DeviceApp
                 uxSubmit.Content = "Update";
             }
 
-            uxGrid_Device.DataContext = Device;
+            //uxGrid_Device.DataContext = Device;
+
+            uxGrid_Attributes.DataContext = Device;
+            uxGrid_Cost.DataContext = Device;
+            uxGrid_General.DataContext = Device;
+            uxGrid_Integration.DataContext = Device;
+            uxGrid_Specs.DataContext = Device;
+
+
+
+
+
+
+
+
+
+
         }
         #endregion
 

@@ -29,50 +29,12 @@ namespace DeviceApp.Models
         {
             var deviceRepository = mapper.Map<Repository.DeviceModel>(this);
 
-            //var deviceRepository = new Repository.DeviceModel
-            //{
-            //    DeviceInventoryId = DeviceInventoryId,
-            //    DevicePartNumber = DevicePartNumber,
-            //    DeviceSerialNumber = DeviceSerialNumber,
-            //    DeviceMfgname = DeviceMfgname,
-            //    DeviceDeviceName = DeviceDeviceName,
-            //    DeviceType = DeviceType,
-            //    DeviceCost = DeviceCost,
-            //    DeviceAttributes = DeviceAttributes,
-            //    DeviceStatus = DeviceStatus,
-            //    DeviceProtocol = DeviceProtocol,
-            //    DeviceControlledBy = DeviceControlledBy,
-            //    DevicePowerType = DevicePowerType,
-            //    DeviceLocation = DeviceLocation,
-            //    DeviceMfgdesc = DeviceMfgdesc,
-            //    DeviceAddedDate = DeviceAddedDate
-            //};
-
             return deviceRepository;
         }
 
         public static DeviceModel ToModel(Repository.DeviceModel deviceRepository)
         {
             var deviceModel = mapper.Map<DeviceModel>(deviceRepository);
-
-            //var deviceModel = new DeviceModel
-            //{
-            //    DeviceInventoryId = deviceRepository.DeviceInventoryId,
-            //    DevicePartNumber = deviceRepository.DevicePartNumber,
-            //    DeviceSerialNumber = deviceRepository.DeviceSerialNumber,
-            //    DeviceMfgname = deviceRepository.DeviceMfgname,
-            //    DeviceDeviceName = deviceRepository.DeviceDeviceName,
-            //    DeviceType = deviceRepository.DeviceType,
-            //    DeviceCost = deviceRepository.DeviceCost,
-            //    DeviceAttributes = deviceRepository.DeviceAttributes,
-            //    DeviceStatus = deviceRepository.DeviceStatus,
-            //    DeviceProtocol = deviceRepository.DeviceProtocol,
-            //    DeviceControlledBy = deviceRepository.DeviceControlledBy,
-            //    DevicePowerType = deviceRepository.DevicePowerType,
-            //    DeviceLocation = deviceRepository.DeviceLocation,
-            //    DeviceMfgdesc = deviceRepository.DeviceMfgdesc,
-            //    DeviceAddedDate = deviceRepository.DeviceAddedDate
-            //};
 
             return deviceModel;
         }

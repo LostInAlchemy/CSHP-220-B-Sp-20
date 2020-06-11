@@ -5,14 +5,200 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:local="clr-namespace:DeviceApp"
         mc:Ignorable="d"
-        Title="New Device" Height="550" Width="830" ResizeMode="NoResize"
+        Title="New Device" Height="400" Width="610" ResizeMode="NoResize"
         FocusManager.FocusedElement="{Binding ElementName=uxDeviceMfgname}"
         Style="{StaticResource GenWindow}" 
         Loaded="Window_Loaded">
 
 
     <StackPanel>
-        <Grid x:Name="uxGrid_Device">
+        <TabControl x:Name="uxTab" DockPanel.Dock="Top">
+            <TabItem Header="General info">
+                <Grid x:Name="uxGrid_General">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="35" />
+                        <ColumnDefinition Width="165"/>
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+
+
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold" Background="Aqua">Manufacturer</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" Background="Aqua">Device Name</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold" Background="Aqua">Part Number</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold" Background="Aqua">Serial Number</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold" Background="Aqua" Margin="0,3,10,56" Grid.RowSpan="2">Type</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="6" FontWeight="Bold" Background="Aqua" Margin="0,2,10,0">MFG Description</TextBlock>
+
+                    <TextBox   Grid.Column="1" Grid.Row="1" x:Name="uxDeviceMfgname"        Text="{Binding DeviceMfgname}" Grid.ColumnSpan="2"      ></TextBox>
+                    <TextBox   Grid.Column="1" Grid.Row="2" x:Name="uxDeviceDeviceName"     Text="{Binding DeviceDeviceName}" Grid.ColumnSpan="2"   ></TextBox>
+                    <TextBox   Grid.Column="1" Grid.Row="3" x:Name="uxDevicePartNumber"     Text="{Binding DevicePartNumber}" Grid.ColumnSpan="2"   ></TextBox>
+                    <TextBox   Grid.Column="1" Grid.Row="4" x:Name="uxDeviceSerialNumber"   Text="{Binding DeviceSerialNumber}" Grid.ColumnSpan="2" ></TextBox>
+                    <TextBox   Grid.Column="1" Grid.Row="6" x:Name="uxDeviceMfgdesc"        Text="{Binding DeviceMfgdesc}" 
+                       TextWrapping="Wrap" Grid.RowSpan="2" Height="90" Grid.ColumnSpan="2" Margin="0,2,10,0"></TextBox>
+
+                    <ComboBox Grid.Column="1" Grid.Row="5" x:Name="uxCmbDeviceType"
+                      IsEditable="True" IsReadOnly="True" Text="Select Device Type"
+                      SelectionChanged="uxCmbDeviceType_SelectionChanged"
+                   
+                      SelectedValuePath="Tag" Grid.ColumnSpan="2" Margin="0,3,10,56" Grid.RowSpan="2"></ComboBox>
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="Device Specs">
+                <Grid x:Name="uxGrid_Specs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold" Background="Aqua" Grid.ColumnSpan="2">Power Type</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" Background="Aqua" Grid.ColumnSpan="2">Protocol</TextBlock>
+
+
+                    <ComboBox Grid.Column="2" Grid.Row="1" x:Name="uxCmbDevicePowerType" 
+                      IsEditable="True" IsReadOnly="True" Text="Select Power Type"
+                      SelectionChanged="uxCmbDevicePowerType_SelectionChanged" 
+                      SelectedValuePath="Tag" ></ComboBox>
+                    <TextBox   Grid.Column="2" Grid.Row="2" x:Name="uxDeviceProtocol"       Text="{Binding DeviceProtocol}"     ></TextBox>
+
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="Attributes">
+                <StackPanel>
+                    <Grid x:Name="uxGrid_Attributes">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Height="20" FontWeight="Bold" Background="Aqua">Attribute List</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" FontWeight="Bold" Background="Aqua">Assigned Attribute</TextBlock>
+
+                    </Grid>
+
+                    <DockPanel Width="580" HorizontalAlignment="Left" Margin="10,0,0,20">
+                        <ListBox x:Name="uxAttributeList" 
+                     DockPanel.Dock="Left" 
+                     Height="150" Width="220" 
+                     Background="AntiqueWhite"
+                     SelectionChanged="uxCurrentList_SelectionChanged"/>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <Button x:Name="uxAdd"      Width="120" FontSize="15" Foreground="Black"
+                        IsEnabled="False" 
+                        Content="Add >>"
+                        Click="Add_Click"/>
+                            <Button x:Name="uxRemove"   Width="120" FontSize="15" Foreground="Black"
+                        IsEnabled="False" 
+                        Content="&lt;&lt; Remove"
+                        Click="Remove_Click"/>
+                        </StackPanel>
+
+                        <ListBox x:Name="uxAddList" 
+                     DockPanel.Dock="Right" 
+                     Height="150" Width="220" 
+                     Background="AntiqueWhite"
+                     SelectionChanged="uxAddList_SelectionChanged"/>
+                    </DockPanel>
+
+
+
+                </StackPanel>
+            </TabItem>
+
+
+            <TabItem Header="Integration">
+                <Grid x:Name="uxGrid_Integration">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Background="Aqua">Status</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold" Background="Aqua">Device Controller</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" Background="Aqua">Location</TextBlock>
+
+                    <TextBox   Grid.Column="1" Grid.Row="0" x:Name="uxDeviceStatus"         Text="{Binding DeviceStatus}"       ></TextBox>
+                    <TextBox   Grid.Column="1" Grid.Row="1" x:Name="uxDeviceControlledBy"   Text="{Binding DeviceControlledBy}" ></TextBox>
+                    <TextBox   Grid.Column="1" Grid.Row="2" x:Name="uxDeviceLocation"       Text="{Binding DeviceLocation}"     ></TextBox>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Cost">
+                <Grid x:Name="uxGrid_Cost">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Background="Aqua">Cost</TextBlock>
+                    <local:PriceTextBox   Grid.Column="1" Grid.Row="0" x:Name="uxDeviceCost"           Text="{Binding DeviceCost}"         ></local:PriceTextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="uxSubmit"  Click="Submit_Click" >Add</Button>
+            <Button x:Name="uxCancel"  Click="Cancel_Click" >Cancel</Button>
+        </StackPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--<Grid x:Name="uxGrid_Device">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="200" />
@@ -32,45 +218,45 @@
                 <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
 
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Background="Aqua">Manufacturer</TextBlock>
+            </Grid.RowDefinitions>-->
+        <!--<TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" Background="Aqua">Manufacturer</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold" Background="Aqua">Device Name</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" Background="Aqua">Part Number</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold" Background="Aqua">Serial Number</TextBlock>
             <TextBlock Grid.Column="0" Grid.Row="4" FontWeight="Bold" Background="Aqua">Type</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold" Background="Aqua">MFG Description</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="0" FontWeight="Bold" Background="Aqua">Cost</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="1" FontWeight="Bold" Background="Aqua">Power Type</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="2" FontWeight="Bold" Background="Aqua">Protocol</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="4" FontWeight="Bold" Background="Aqua">Status</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="5" FontWeight="Bold" Background="Aqua">MFG Description</TextBlock>-->
+        <!--<TextBlock Grid.Column="3" Grid.Row="0" FontWeight="Bold" Background="Aqua">Cost</TextBlock>-->
+        <!--<TextBlock Grid.Column="3" Grid.Row="1" FontWeight="Bold" Background="Aqua">Power Type</TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="2" FontWeight="Bold" Background="Aqua">Protocol</TextBlock>-->
+        <!--<TextBlock Grid.Column="3" Grid.Row="4" FontWeight="Bold" Background="Aqua">Status</TextBlock>
             <TextBlock Grid.Column="3" Grid.Row="5" FontWeight="Bold" Background="Aqua">Device Controller</TextBlock>
-            <TextBlock Grid.Column="3" Grid.Row="6" FontWeight="Bold" Background="Aqua">Location</TextBlock>
-            <TextBlock Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" Height="20" FontWeight="Bold" Background="Aqua">Attribute List</TextBlock>
-            <TextBlock Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" FontWeight="Bold" Background="Aqua">Assigned Attribute</TextBlock>
-            
-            <TextBox   Grid.Column="1" Grid.Row="0" x:Name="uxDeviceMfgname"        Text="{Binding DeviceMfgname}"      ></TextBox>
+            <TextBlock Grid.Column="3" Grid.Row="6" FontWeight="Bold" Background="Aqua">Location</TextBlock>-->
+        <!--<TextBlock Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" Height="20" FontWeight="Bold" Background="Aqua">Attribute List</TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" FontWeight="Bold" Background="Aqua">Assigned Attribute</TextBlock>-->
+
+        <!--<TextBox   Grid.Column="1" Grid.Row="0" x:Name="uxDeviceMfgname"        Text="{Binding DeviceMfgname}"      ></TextBox>
             <TextBox   Grid.Column="1" Grid.Row="1" x:Name="uxDeviceDeviceName"     Text="{Binding DeviceDeviceName}"   ></TextBox>
             <TextBox   Grid.Column="1" Grid.Row="2" x:Name="uxDevicePartNumber"     Text="{Binding DevicePartNumber}"   ></TextBox>
             <TextBox   Grid.Column="1" Grid.Row="3" x:Name="uxDeviceSerialNumber"   Text="{Binding DeviceSerialNumber}" ></TextBox>
             <TextBox   Grid.Column="1" Grid.Row="5" x:Name="uxDeviceMfgdesc"        Text="{Binding DeviceMfgdesc}" 
-                       TextWrapping="Wrap" Grid.RowSpan="3" Height="90"></TextBox>
-            <local:PriceTextBox   Grid.Column="4" Grid.Row="0" x:Name="uxDeviceCost"           Text="{Binding DeviceCost}"         ></local:PriceTextBox>
-            <TextBox   Grid.Column="4" Grid.Row="2" x:Name="uxDeviceProtocol"       Text="{Binding DeviceProtocol}"     ></TextBox>
-            <TextBox   Grid.Column="4" Grid.Row="4" x:Name="uxDeviceStatus"         Text="{Binding DeviceStatus}"       ></TextBox>
+                       TextWrapping="Wrap" Grid.RowSpan="3" Height="90"></TextBox>-->
+        <!--<local:PriceTextBox   Grid.Column="4" Grid.Row="0" x:Name="uxDeviceCost"           Text="{Binding DeviceCost}"         ></local:PriceTextBox>-->
+        <!--<TextBox   Grid.Column="4" Grid.Row="2" x:Name="uxDeviceProtocol"       Text="{Binding DeviceProtocol}"     ></TextBox>-->
+        <!--<TextBox   Grid.Column="4" Grid.Row="4" x:Name="uxDeviceStatus"         Text="{Binding DeviceStatus}"       ></TextBox>
             <TextBox   Grid.Column="4" Grid.Row="5" x:Name="uxDeviceControlledBy"   Text="{Binding DeviceControlledBy}" ></TextBox>
-            <TextBox   Grid.Column="4" Grid.Row="6" x:Name="uxDeviceLocation"       Text="{Binding DeviceLocation}"     ></TextBox>
+            <TextBox   Grid.Column="4" Grid.Row="6" x:Name="uxDeviceLocation"       Text="{Binding DeviceLocation}"     ></TextBox>-->
 
-            <ComboBox Grid.Column="1" Grid.Row="4" x:Name="uxCmbDeviceType"
+        <!--<ComboBox Grid.Column="1" Grid.Row="4" x:Name="uxCmbDeviceType"
                       IsEditable="True" IsReadOnly="True" Text="Select Device Type"
                       SelectionChanged="uxCmbDeviceType_SelectionChanged" 
-                      SelectedValuePath="Tag"></ComboBox>
-            <ComboBox Grid.Column="4" Grid.Row="1" x:Name="uxCmbDevicePowerType" 
+                      SelectedValuePath="Tag"></ComboBox>-->
+        <!--<ComboBox Grid.Column="4" Grid.Row="1" x:Name="uxCmbDevicePowerType" 
                       IsEditable="True" IsReadOnly="True" Text="Select Power Type"
                       SelectionChanged="uxCmbDevicePowerType_SelectionChanged" 
-                      SelectedValuePath="Tag" ></ComboBox>
-            
-        </Grid>
-        <DockPanel Width="580" HorizontalAlignment="Left" Margin="10,0,0,20">
+                      SelectedValuePath="Tag" ></ComboBox>-->
+
+        <!--</Grid>-->
+        <!--<DockPanel Width="580" HorizontalAlignment="Left" Margin="10,0,0,20">
             <ListBox x:Name="uxAttributeList" 
                      DockPanel.Dock="Left" 
                      Height="150" Width="220" 
@@ -96,6 +282,6 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Button x:Name="uxSubmit"  Click="Submit_Click" >Add</Button>
             <Button x:Name="uxCancel"  Click="Cancel_Click" >Cancel</Button>
-        </StackPanel>
+        </StackPanel>-->
     </StackPanel>
 </Window>

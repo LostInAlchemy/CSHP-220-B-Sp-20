@@ -16,6 +16,10 @@ namespace DeviceApp
             typeRepository = new Repository.TypeRepository();
         }
 
+        public App()
+        {
+        }
+
         public static Repository.DeviceRepository DeviceRepository
         {
             get

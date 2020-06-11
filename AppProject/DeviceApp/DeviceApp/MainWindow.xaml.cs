@@ -12,6 +12,7 @@ namespace DeviceApp
         public MainWindow()
         {
             InitializeComponent();
+            //this = Application.MainWindow;
         }
 
         private void uxClose_Click(object sender, RoutedEventArgs e)
@@ -24,28 +25,31 @@ namespace DeviceApp
             this.Visibility = Visibility.Collapsed;
             var windownTypeInv = new TypeInventory(ExitType);
             windownTypeInv.DataContext = this;
-            windownTypeInv.ShowDialog();
+            windownTypeInv.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //windownTypeInv.Topmost = true;
 
+            windownTypeInv.ShowDialog();
+            _ = App.Current.Windows;
             ExitEvent(windownTypeInv);
+            
         }
 
         private void ExitEvent(TypeInventory windownTypeInv)
         {
-            try
+            if (windownTypeInv.DataContext.ToString() == "Logout")
             {
-                if ((string)windownTypeInv.DataContext == "Logout")
-                {
-                    this.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    this.Close();
-                }
+                this.Visibility = Visibility.Visible;
             }
-            catch
+            else if (windownTypeInv.DataContext.ToString() == "Exit")
             {
-                //this.Close();
+            Application.Current.Shutdown();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _ = App.Current.Windows;
+            MessageBox.Show("THis Sucks");
         }
     }
 }

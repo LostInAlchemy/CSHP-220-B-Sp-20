@@ -22,6 +22,8 @@ namespace DeviceApp
         {
             InitializeComponent();
             LoadTypes();
+
+           // _ = Application.Current.MainWindow;
         }
 
         #region Click Events
@@ -29,6 +31,8 @@ namespace DeviceApp
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
         {
             var window = new NewType();
+
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             if (window.ShowDialog() == true)
             {
@@ -57,16 +61,9 @@ namespace DeviceApp
             LoadTypes();
         }
 
-        private void uxOnClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.DataContext = "Logout";
-            this.Close();
-        }
-
         private void uxExit_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = "";
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
@@ -78,10 +75,7 @@ namespace DeviceApp
 
         #region Double Click Events
 
-        private void uxTypeList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            OpenDevicePage(ExitType);
-        }
+
 
         #endregion
 
@@ -133,53 +127,6 @@ namespace DeviceApp
             }
         }
 
-        private void OpenDevicePage(string ExitType)
-        {
-            this.Visibility = Visibility.Collapsed;
-            string SelectedType = string.Empty;
-
-            if (selectedType != null)
-            {
-                SelectedType = selectedType.TypeType.ToString();
-            }
-            else
-            {
-                SelectedType = "All";
-            }
-
-            var windowDeviceInv = new DeviceInventory(ExitType, SelectedType);
-            windowDeviceInv.ShowDialog();
-
-            selectedType = null;
-            ExitEvent(windowDeviceInv);
-        }
-
-        private void ExitEvent(DeviceInventory windowDeviceInv)
-        {
-            try
-            {
-                if ((string)windowDeviceInv.DataContext == "TypePage")
-                {
-                    this.Visibility = Visibility.Visible;
-                    //windowDeviceInv.DataContext = null;
-                }
-                else if((string)windowDeviceInv.DataContext == "Logout")
-                {
-                    this.DataContext = "Logout";
-                    this.Close();
-                }
-                else
-                {
-                    this.DataContext = "";
-                    this.Close();
-                }
-            }
-            catch
-            {
-                this.Close();
-            }
-        }
-
         private void Sort(object sender)
         {
             GridViewColumnHeader column = (sender as GridViewColumnHeader);
@@ -201,5 +148,78 @@ namespace DeviceApp
         }
 
         #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = "Logout";
+            _ = Application.Current.MainWindow;
+            this.Close();
+            Application.Current.MainWindow.Visibility = Visibility.Visible;
+        }
+
+        private void uxTypeList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            OpenDevicePage(ExitType);
+        }
+
+
+        private void OpenDevicePage(string ExitType)
+        {
+            this.Visibility = Visibility.Collapsed;
+            string SelectedType = string.Empty;
+
+            if (selectedType != null)
+            {
+                SelectedType = selectedType.TypeType.ToString();
+            }
+            else
+            {
+                SelectedType = "All";
+            }
+
+            var windowDeviceInv = new DeviceInventory(ExitType, SelectedType);
+            windowDeviceInv.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            windowDeviceInv.ShowDialog();
+
+            //selectedType = null;
+            ExitEvent(windowDeviceInv);
+        }
+
+        private void ExitEvent(DeviceInventory windowDeviceInv)
+        {
+            if ((string)windowDeviceInv.DataContext == "TypePage")
+            {
+                this.Visibility = Visibility.Visible;
+                //windowDeviceInv.DataContext = null;
+            }
+            else if ((string)windowDeviceInv.DataContext == "Logout")
+            {
+                this.DataContext = "Logout";
+                this.Close();
+            }
+            else
+            {
+                this.DataContext = "Exit";
+                this.Close();
+            }
+        }
     }
 }

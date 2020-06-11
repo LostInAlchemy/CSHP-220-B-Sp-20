@@ -61,7 +61,8 @@ GO																																																																														
 	values
 	('Motion Sensor', 'Detects motion'),
 	('Contact Sensor', 'Detects open/close'),
-	('Light Switch', 'On/Off Dimmer');
+	('Light Switch', 'On/Off Dimmer'),
+	('WiFi Camera', 'Web camera that can be viewed over the internet');
 
 
 		insert into DeviceInventory ([Device_MFGName],[Device_PartNumber],[Device_SerialNumber],[Device_DeviceName]

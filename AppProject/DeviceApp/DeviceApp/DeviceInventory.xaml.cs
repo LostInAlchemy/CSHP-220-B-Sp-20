@@ -24,6 +24,8 @@ namespace DeviceApp
             InitializeComponent();
             DeviceList(selectedType);
             PopulateFilterMenu();
+
+            _ = App.Current.Windows;
         }
 
         #region Click Events
@@ -35,8 +37,7 @@ namespace DeviceApp
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = "";
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
@@ -54,7 +55,7 @@ namespace DeviceApp
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
         {
             var window = new NewDevice();
-
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             if (window.ShowDialog() == true)
             {
                 var uiDeviceModel = window.Device;
@@ -84,6 +85,7 @@ namespace DeviceApp
         {
             this.DataContext = "TypePage";
             this.Close();
+
         }
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
