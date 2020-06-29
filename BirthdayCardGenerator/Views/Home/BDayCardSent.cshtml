@@ -1,0 +1,26 @@
+﻿@model BirthdayCardGenerator.Models.SenderInfo
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BDayCardForm</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Style.css" />
+</head>
+
+
+
+<body>
+
+    <h1>Birthday Card Generator</h1>
+    <h2>Birthday Card Sent</h2>
+    <h3>From: @Model.From</h3>
+    <h4>To: @Model.To</h4>
+    <h5>Message: @Model.Message</h5>
+
+</body>
+</html>

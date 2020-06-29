@@ -1,0 +1,60 @@
+﻿@model BirthdayCardGenerator.Models.GuestResponse
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<h1>Thank you, @Model.Name</h1>
+@if (Model.WillAttend == true)
+{
+    @:Thanks for coming!
+}
+else
+{
+    @:Sorry you can't make it.
+}
+
+@*@model BirthdayCardGenerator.Models.GuestResponse
+
+    @{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Thanks</title>
+    </head>
+    <body>
+
+    <div>
+        <h4>GuestResponse</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.WillAttend)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WillAttend)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        <a asp-action="Index">Back to List</a>
+    </div>
+    </body>
+    </html>*@
